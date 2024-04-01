@@ -1,16 +1,17 @@
-import { css } from '@linaria/core';
+import { styled } from '@linaria/react';
+
 import React, { FC } from 'react';
 
-const styles = {
-  hello: css`
-    background-color: #EEEEEE;
-  `
-}
+const RedText = styled.div<{ baseSize: number }>`
+color: red;
+font-size: ${(props) => props.baseSize * 2};
+`
 
 type Props = {};
 
 export const Hello: FC<Props> = ({ }) => {
-  return <div className={styles.hello}>
-    <h1>Hello React</h1>
-  </div>;
+  return <div>
+    <RedText baseSize={10}>Hello React</RedText>
+    <RedText baseSize={20}>Hello React</RedText>
+  </div>
 }
